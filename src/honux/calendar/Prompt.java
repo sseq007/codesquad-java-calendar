@@ -11,6 +11,9 @@ public class Prompt {
 		Calendar cal= new Calendar();
 		
 		while(true) {
+			System.out.println("년도를 입려하세요");
+			System.out.print("YEAR");
+			int year =kb.nextInt();
 			System.out.println("달을 입려하세요");
 			System.out.print(PROMPT);
 			int month =kb.nextInt();
@@ -21,7 +24,7 @@ public class Prompt {
 				continue;
 			}
 			
-			cal.printCalendar(2022,month);
+			cal.printCalendar(year,month);
 		}
 		System.out.println("BYE");
 		kb.close();
