@@ -24,16 +24,26 @@ public class Calendar {
 		}
 	}
 	
-	static void printCalendar(int year,int month) {
+	void printCalendar(int year,int month,int weekDay) {
 		System.out.printf("   <<%4d년%3d월>>\n",year,month);
-		System.out.println(" SU MO TU WE TH FI SA");
+		System.out.println(" SU MO TU WE TH FR SA");
 		System.out.println("-----------------------");
 		
 		int	maxDay=getMaxDaysofMonth(year,month);
+		int count=7-weekDay;
+		int delim = (count<7)?count:0;
+		for(int i=0;i<weekDay;i++) {
+			System.out.print("   ");
+		}
 		
-		for(int i=1;i<=maxDay;i++) {
+		for(int i=1;i<=count;i++) {
 			System.out.printf("%3d",i);
-			if(i%7==0) {
+		}
+		System.out.println();
+		count++;
+		for(int i=count;i<=maxDay;i++) {
+			System.out.printf("%3d",i);
+			if(i%7==delim) {
 				System.out.println();
 			}
 		}
